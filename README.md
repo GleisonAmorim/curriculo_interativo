@@ -12,7 +12,7 @@ Este projeto é um currículo interativo criado usando HTML, JavaScript e CSS. E
 - HTML
 -JavaScript
 - CSS
-- 
+
 ## Visualização Online:
 - Você pode conferir o meu currículo interativo online aqui ou realizar o download pelo google drive
 
