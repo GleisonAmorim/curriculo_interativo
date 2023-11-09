@@ -218,6 +218,153 @@
                 font-size: 14px;
             }
         }
+
+        .projects-section {
+            padding: 20px;
+        }
+
+        .projects-section h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .project-tabs {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            margin-bottom: 10px;
+            /* Adiciona espaço abaixo dos botões */
+        }
+
+        .project-tab {
+            padding: 10px 20px;
+            /* Adiciona preenchimento aos botões */
+            background-color: #3498db;
+            /* Cor de fundo do botão */
+            color: #fff;
+            /* Cor do texto do botão */
+            border-radius: 5px;
+            /* Adiciona cantos arredondados aos botões */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            /* Adiciona transição de cor ao passar o mouse */
+        }
+
+        .project-tab:hover {
+            background-color: #2980b9;
+            /* Cor de fundo ao passar o mouse */
+        }
+
+        .project-content {
+            display: none;
+        }
+
+        .project-tab.active {
+            background-color: #ddd;
+        }
+
+        .project-content.active {
+            display: block;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-item:hover {
+            transform: scale(1.02);
+        }
+
+        .project-image-container {
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            /* Isso centraliza horizontalmente o container */
+        }
+
+        .project-image {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+            /* Isso centraliza horizontalmente a imagem dentro do container */
+        }
+
+        .center-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Isso é opcional, ajuste conforme necessário */
+        }
+
+        .project-links {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .project-links a {
+            color: #fff;
+            font-size: 18px;
+            margin: 5px;
+            text-decoration: none;
+        }
+
+        .project-item:hover .project-links {
+            opacity: 1;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: #000000;
+            line-height: 1.5;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .project-tools {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .project-tools img {
+            width: 100px;
+            /* Tamanho desejado para os ícones */
+            height: px;
+            /* Ajuste conforme necessário */
+            margin-right: 10px;
+            /* Adiciona um espaço entre os ícones, ajuste conforme necessário */
+            border-radius: 8px;
+            /* Adiciona cantos arredondados, ajuste conforme necessário */
+        }
     </style>
     <title>Meu Currículo</title>
 </head>
@@ -590,53 +737,303 @@
                 </div>
             </div>
         </div>
-        <script>
-            function copyToClipboardAndAlert(text) {
-                var textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                alert("E-mail copiado: " + text);
-            }
+        <div class="projects-section">
+            <h2>Portifólio</h2>
+            <div class="project-tabs">
+                <div class="project-tab active" onclick="toggleProjectTab('backend')">Projetos Backend</div>
+                <div class="project-tab" onclick="toggleProjectTab('frontend')">Projetos Frontend</div>
+                <div class="project-tab" onclick="toggleProjectTab('analise-dados')">Projetos de Análise de Dados</div>
+            </div>
+            <div id="backend" class="project-content active">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/zDwKT2n9/youtube.png" alt="Youtube_MP3"
+                                class="project-image">
+                            <div class="project-links">
+                                <a href="https://github.com/GleisonAmorim/Youtube_To_MP3" target="_blank">Clique aqui
+                                    para acessar o projeto no github</a>
+                            </div>
 
-            var openExperience = null;
-            var openEducation = null;
+                        </div>
+                        <p class="project-description">Este é um
+                            programa feito com a linguagem Python para baixar
+                            vídeos do YouTube e convertê-los em arquivos MP3.</p>
+                        <div class="project-tools">
+                            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"
+                                alt="python">
+                            <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"
+                                alt="VisualStudioCode">
+                            <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"
+                                alt="youtube">
 
-            function toggleExperienceDetails(experienceNumber) {
-                var details = document.getElementById(`experience-details-${experienceNumber}`);
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/02nV8yjX/or-amento.png" alt="Orçamento"
+                                class="project-image">
+                            <div class="project-links">
+                                <a href="https://github.com/GleisonAmorim/Orcamento_Automatico_Python"
+                                    target="_blank">Clique aqui
+                                    para acessar o projeto no github</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Este projeto Python oferece uma solução eficiente para a geração
+                            automatizada de orçamentos.</p>
+                        <div class="project-tools">
+                            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"
+                                alt="python">
+                            <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"
+                                alt="VisualStudioCode">
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/wvYpKY6V/Captura-de-tela-2023-11-09-130352.png"
+                                alt="Projeto 3" class="project-image">
+                            <div class="project-links">
+                                <a href="https://github.com/GleisonAmorim/Analise_dados_Python" target="_blank">Clique
+                                    aqui
+                                    para acessar o projeto no github</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Utilizei Python e a biblioteca Pandas para
+                            manipulação eficiente de dados com o objetivo de oferecer
+                            insights estratégicos para melhorias operacionais.</p>
+                        <div class="project-tools">
+                            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"
+                                alt="python">
+                            <img src="https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"
+                                alt="VisualStudioCode">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                if (openExperience !== null && openExperience !== details) {
-                    openExperience.style.display = "none";
-                }
+            <div id="frontend" class="project-content">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/3RYbYSmm/Captura-de-tela-2023-11-09-124140.png"
+                                alt="Projeto 1" class="project-image">
+                            <div class="project-links">
+                                <a href="https://site-signos.vercel.app/index.html" target="_blank">Clique aqui para
+                                    acessar o Site</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Site completo que oferece informações
+                            sobre signos, sugestões de tatuagens e
+                            símbolos. Hospedagem eficiente via Canva para consulta rápida.</p>
+                        <div class="project-tools">
+                            <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white"
+                                alt="HTML">
+                            <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white"
+                                alt="CSS">
+                            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black alt="
+                                JavaScript">
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/YqSX8D1y/Captura-de-tela-2023-11-09-124959.png"
+                                alt="Projeto 2" class="project-image">
+                            <div class="project-links">
+                                <a href="https://drive.google.com/file/d/1zgNLnZVdlBxYTsSKZuJH926G-nWGuZbC/view?usp=sharing"
+                                    target="_blank">Clique aqui para
+                                    baixar o apk para dispositivos Android</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Realizei a conversão do site dos signos html em apk para
+                            dispositivos
+                            android, agora o site dos signos também pode ser seu aplicativo de consultas diárias.</p>
+                        <div class="project-tools">
+                            <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white"
+                                alt="HTML">
+                            <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white"
+                                alt="CSS">
+                            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black alt="
+                                JavaScript">
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/nzky9jJs/Captura-de-tela-2023-11-09-125459.png"
+                                alt="Projeto 3" class="project-image">
+                            <div class="project-links">
+                                <a href="https://github.com/GleisonAmorim/curriculo_interativo" target="_blank">Clique
+                                    aqui
+                                    para acessar o projeto no github</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Na busca de impressionar o recrutador, criei esse currículo
+                            interativo, nele destaco minhas experiências e minha capacidade de ciração fullstack</p>
+                        <div class="project-tools">
+                            <img src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white"
+                                alt="HTML">
+                            <img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white"
+                                alt="CSS">
+                            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black alt="
+                                JavaScript">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                if (details.style.display === "none" || details.style.display === "") {
-                    details.style.display = "block";
-                    openExperience = details;
-                } else {
-                    details.style.display = "none";
-                    openExperience = null;
-                }
-            }
+            <div id="analise-dados" class="project-content">
+                <div class="project-grid">
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/Jn6PN1H4/analise-de-vendas-pbi.png" alt="Projeto 1"
+                                class="project-image">
+                            <div class="project-links">
+                                <a href="https://github.com/GleisonAmorim/Dash-vendas-PowerBI" target="_blank">Clique
+                                    aqui
+                                    para acessar o projeto no github</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Dashboard de Vendas no Power BI: análise estratégica com gráficos
+                            dinâmicos por ano, trimestre, mês e tipo de pagamento. </p>
+                        <div class="project-tools">
+                            <img src="https://i.postimg.cc/C11gNx5R/bi.png" alt="power bi">
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/jqJJRxq6/Captura-de-tela-2023-11-09-124000.png"
+                                alt="Projeto 2" class="project-image">
+                            <div class="project-links">
+                                <a href="https://github.com/GleisonAmorim/Dashboard-AcompanhamentoTI-PowerBi"
+                                    target="_blank">Clique aqui
+                                    para acessar o projeto no github</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Projeto Power BI: eficiente monitoramento de indicadores e
+                            chamados de TI, com destaque para acompanhamento, gráficos detalhados e análise de
+                            efetividade.</p>
+                        <div class="project-tools">
+                            <img src="https://i.postimg.cc/C11gNx5R/bi.png" alt="power bi">
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-image-container">
+                            <img src="https://i.postimg.cc/ZnxzYzvP/vendas-excel.png" alt="Projeto 3"
+                                class="project-image">
+                            <div class="project-links">
+                                <a href="https://github.com/GleisonAmorim/Projetos-Excel" target="_blank">Clique aqui
+                                    para acessar o projeto no github</a>
+                            </div>
+                        </div>
+                        <p class="project-description">Dashboard Excel: análise de vendas por ano, trimestre, mês e tipo
+                            de pagamento
+                            pagamento para decisões estratégicas.</p>
+                        <div class="project-tools">
+                            <img src="https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"
+                                alt="excel">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            function toggleEducationDetails(educationNumber) {
-                var details = document.getElementById(`education-details-${educationNumber}`);
-
-                if (openEducation !== null && openEducation !== details) {
-                    openEducation.style.display = "none";
-                }
-
-                if (details.style.display === "none" || details.style.display === "") {
-                    details.style.display = "block";
-                    openEducation = details;
-                } else {
-                    details.style.display = "none";
-                    openEducation = null;
-                }
-            }
-        </script>
+        </div>
     </div>
+    </div>
+    <div class="projects-section">
+        <h2>Veja todos os meus projetos no <a href="https://github.com/GleisonAmorim">
+                <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"
+                    alt="GitHub">
+            </a>
+
+            <script>
+                function toggleProjectTab(tabId) {
+                    // Lógica da função toggleProjectTab ...
+                }
+            </script>
+    </div>
+</body>
+
+</html>
+<script>
+    function toggleProjectTab(tabId) {
+        // Lógica da função toggleProjectTab ...
+    }
+</script>
+</div>
+</body>
+
+</html>
+<script>
+    function toggleProjectTab(tabId) {
+        // Esconder todas as abas de projeto
+        var projectContents = document.getElementsByClassName('project-content');
+        for (var i = 0; i < projectContents.length; i++) {
+            projectContents[i].classList.remove('active');
+        }
+
+        // Desativar todas as abas de projeto
+        var projectTabs = document.getElementsByClassName('project-tab');
+        for (var i = 0; i < projectTabs.length; i++) {
+            projectTabs[i].classList.remove('active');
+        }
+
+        // Ativar a aba de projeto selecionada
+        document.getElementById(tabId).classList.add('active');
+
+        // Marcar a aba de projeto como ativa
+        var activeTab = document.querySelector('.project-tab.active');
+        if (activeTab) {
+            activeTab.classList.remove('active');
+        }
+        document.querySelector('[onclick="toggleProjectTab(\'' + tabId + '\')"]').classList.add('active');
+    }
+</script>
+<script>
+    function copyToClipboardAndAlert(text) {
+        var textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert("E-mail copiado: " + text);
+    }
+
+    var openExperience = null;
+    var openEducation = null;
+
+    function toggleExperienceDetails(experienceNumber) {
+        var details = document.getElementById(`experience-details-${experienceNumber}`);
+
+        if (openExperience !== null && openExperience !== details) {
+            openExperience.style.display = "none";
+        }
+
+        if (details.style.display === "none" || details.style.display === "") {
+            details.style.display = "block";
+            openExperience = details;
+        } else {
+            details.style.display = "none";
+            openExperience = null;
+        }
+    }
+
+    function toggleEducationDetails(educationNumber) {
+        var details = document.getElementById(`education-details-${educationNumber}`);
+
+        if (openEducation !== null && openEducation !== details) {
+            openEducation.style.display = "none";
+        }
+
+        if (details.style.display === "none" || details.style.display === "") {
+            details.style.display = "block";
+            openEducation = details;
+        } else {
+            details.style.display = "none";
+            openEducation = null;
+        }
+    }
+</script>
+</div>
 </body>
 
 </html>
