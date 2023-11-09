@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
+
     <style>
         /* Estilos base */
         body {
@@ -235,27 +235,13 @@
             display: flex;
             justify-content: space-around;
             margin: 20px 0;
-            margin-bottom: 10px;
-            /* Adiciona espaço abaixo dos botões */
         }
 
         .project-tab {
-            padding: 10px 20px;
-            /* Adiciona preenchimento aos botões */
-            background-color: #3498db;
-            /* Cor de fundo do botão */
-            color: #fff;
-            /* Cor do texto do botão */
-            border-radius: 5px;
-            /* Adiciona cantos arredondados aos botões */
+            padding: 10px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
-            /* Adiciona transição de cor ao passar o mouse */
-        }
-
-        .project-tab:hover {
-            background-color: #2980b9;
-            /* Cor de fundo ao passar o mouse */
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         .project-content {
@@ -270,9 +256,15 @@
             display: block;
         }
 
+        .projects-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
 
@@ -284,7 +276,12 @@
             transition: transform 0.3s ease-in-out;
             position: relative;
             overflow: hidden;
-            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .project-item:hover {
@@ -307,7 +304,6 @@
             max-height: 100%;
             display: block;
             margin: auto;
-            border-radius: 10px;
             /* Isso centraliza horizontalmente a imagem dentro do container */
         }
 
