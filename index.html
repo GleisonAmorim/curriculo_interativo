@@ -7,183 +7,365 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
 
-    <style>
-      /* Estilos base */
-body {
-    font-family: Cambria, serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-}
+     <style>
+        /* Estilos base */
+        body {
+            font-family: Cambria, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
 
-.header {
-    background-color: #230f96;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        .header {
+            background-color: #230f96;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.header h1 {
-    font-size: 28px;
-    margin: 0;
-}
+        .header h1 {
+            font-size: 28px;
+            margin: 0;
+        }
 
-.header i {
-    font-size: 16px;
-}
+        .header i {
+            font-size: 16px;
+        }
 
-.icons-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-}
+        .icons-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
 
-.icons-section a img {
-    border-radius: 10px;
-    transition: transform 0.2s;
-}
+        .icons-section a img {
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
 
-.icons-section a img:hover {
-    transform: scale(1.1);
-}
+        .icons-section a img:hover {
+            transform: scale(1.1);
+        }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        .presentation {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.presentation {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+        .presentation h2 {
+            font-size: 24px;
+            color: #333;
+        }
 
-.presentation h2 {
-    font-size: 24px;
-    color: #333;
-}
+        .presentation p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.5;
+        }
 
-.presentation p {
-    font-size: 18px;
-    color: #555;
-    line-height: 1.5;
-}
+        .experience-section {
+            padding: 20px;
+        }
 
-/* Estilos para seções de experiência e educação */
-.section {
-    padding: 20px;
-}
+        .experience-section h2 {
+            font-size: 24px;
+            color: #333;
+        }
 
-.section h2 {
-    font-size: 24px;
-    color: #333;
-}
+        .experience-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
 
-.item {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
+        .experience-title {
+            font-size: 15px;
+            color: #000000;
+        }
 
-.title {
-    font-size: 15px;
-    color: #000000;
-}
+        .experience-details {
+            padding: 20px;
+            background-color: rgba(33, 150, 243, 0.1);
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
 
-.details {
-    padding: 20px;
-    background-color: rgba(33, 150, 243, 0.1);
-    border-radius: 10px;
-    margin: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: none;
-}
+        .experience-details h3 {
+            font-size: 20px;
+            color: #333;
+        }
 
-.details h3 {
-    font-size: 20px;
-    color: #333;
-}
+        .experience-details p {
+            font-size: 16px;
+            color: #555;
+        }
 
-.details p {
-    font-size: 16px;
-    color: #555;
-}
+        .experience-details ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
 
-.details ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
+        .experience-details strong {
+            font-weight: bold;
+        }
 
-.details strong {
-    font-weight: bold;
-}
+        .education-section {
+            padding: 20px;
+        }
 
-/* Hover effect for items */
-.item:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease-in-out;
-}
+        .education-section h2 {
+            font-size: 24px;
+            color: #333;
+        }
 
-h2 {
-    color: #000000;
-}
+        .education-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
 
-.centralizado {
-    text-align: center;
-    margin: 10px;
-}
+        .education-title {
+            font-size: 15px;
+            color: #000000;
+        }
 
-/* Estilos para telas pequenas (por exemplo, celulares) */
-@media (max-width: 768px) {
-    .header {
-        padding: 10px;
-    }
+        .education-details {
+            padding: 20px;
+            background-color: rgba(33, 150, 243, 0.1);
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
 
-    .header h1 {
-        font-size: 24px;
-    }
+        .education-details p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
 
-    .header i {
-        font-size: 14px;
-    }
+        /* Hover effect for experience and education items */
+        .experience-item:hover,
+        .education-item:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease-in-out;
+        }
 
-    .icons-section {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
+        h2 {
+            color: #000000;
+        }
 
-    .icons-section a img {
-        max-width: 100px;
-        max-height: 100px;
-    }
+        .centralizado {
+            text-align: center;
+            margin: 10px;
+        }
 
-    .presentation,
-    .item,
-    .details {
-        padding: 10px;
-    }
+        /* Estilos para telas pequenas (por exemplo, celulares) */
+        @media (max-width: 768px) {
+            .header {
+                padding: 10px;
+            }
 
-    .presentation h2 {
-        font-size: 20px;
-    }
+            .header h1 {
+                font-size: 24px;
+            }
 
-    .presentation p,
-    .title,
-    .details p {
-        font-size: 14px;
-    }
-}
+            .header i {
+                font-size: 14px;
+            }
 
+            .icons-section {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .icons-section a img {
+                max-width: 100px;
+                max-height: 100px;
+            }
+
+            .presentation {
+                padding: 10px;
+            }
+
+            .presentation h2 {
+                font-size: 20px;
+            }
+
+            .presentation p {
+                font-size: 14px;
+            }
+
+            .experience-title,
+            .education-title {
+                font-size: 14px;
+            }
+
+            .experience-details p,
+            .education-details p {
+                font-size: 14px;
+            }
+        }
+
+        .projects-section {
+            padding: 20px;
+        }
+
+        .projects-section h2 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .project-tabs {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .project-tab {
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .project-content {
+            display: none;
+        }
+
+        .project-tab.active {
+            background-color: #ddd;
+        }
+
+        .project-content.active {
+            display: block;
+        }
+
+        .projects-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-item:hover {
+            transform: scale(1.02);
+        }
+
+        .project-image-container {
+            width: 200px;
+            height: 150px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            /* Isso centraliza horizontalmente o container */
+        }
+
+        .project-image {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;            /* Isso centraliza horizontalmente a imagem dentro do container */
+            border-radius: 10px;
+        }
+
+        .center-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Isso é opcional, ajuste conforme necessário */
+        }
+
+        .project-links {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .project-links a {
+            color: #fff;
+            font-size: 18px;
+            margin: 5px;
+            text-decoration: none;
+        }
+
+        .project-item:hover .project-links {
+            opacity: 1;
+        }
+
+        .project-description {
+            font-size: 14px;
+            color: #000000;
+            line-height: 1.5;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .project-tools {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .project-tools img {
+            width: 100px;
+            /* Tamanho desejado para os ícones */
+            height: px;
+            /* Ajuste conforme necessário */
+            margin-right: 10px;
+            /* Adiciona um espaço entre os ícones, ajuste conforme necessário */
+            border-radius: 8px;
+            /* Adiciona cantos arredondados, ajuste conforme necessário */
+        }
     </style>
     <title>Meu Currículo</title>
 </head>
