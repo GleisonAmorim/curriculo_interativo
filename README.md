@@ -1,3 +1,5 @@
+## Este é apenas um projeto não é o meu currículo atualizado, caso queira meu portifólio está em: https://porifolio-gleisonamorim.vercel.app/
+
 ## Descrição:
 Este projeto é um currículo interativo criado usando HTML, JavaScript e CSS. Ele oferece uma maneira inovadora de apresentar minhas informações de perfil, experiência educacional e competências técnicas. O currículo inclui detalhes sobre minha formação, cursos complementares, e um resumo das minhas habilidades. Além disso, ele permite que os visualizadores cliquem em diferentes seções para ver mais informações, proporcionando uma experiência interativa.
 
